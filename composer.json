@@ -1,6 +1,6 @@
 {
-  "name": "hellogerard/jobby",
-  "homepage": "https://github.com/jobbyphp/jobby",
+  "name": "xcode75/jobby",
+  "homepage": "https://github.com/xcode75/jobby",
   "license": "MIT",
   "description": "Manage all your cron jobs without modifying crontab. Handles locking, logging, error emails, and more.",
   "authors": [
@@ -18,7 +18,7 @@
     "php": ">=5.6",
     "dragonmantank/cron-expression": "^3.0",
     "opis/closure": "^3.5",
-    "swiftmailer/swiftmailer": "^5.4|^6.0",
+    "swiftmailer/swiftmailer": "^6.3",
     "symfony/process": "^2.7|^3.0|^4.0|^5.0"
   },
   "require-dev": {
