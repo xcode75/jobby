@@ -55,6 +55,7 @@ class BackgroundJob
             'enabled'        => null,
             'haltDir'        => null,
             'debug'          => null,
+			'lock_dir'       => null,
         ];
 
         $this->config['output_stdout'] = $this->config['output_stdout'] === null ? $this->config['output'] : $this->config['output_stdout'];
@@ -62,7 +63,7 @@ class BackgroundJob
 
         $this->helper = $helper ?: new Helper();
 
-        $this->tmpDir = $this->helper->getTempDir();
+        $this->tmpDir = $this->helper->getTempDir($this->config['lock_dir']);
     }
 
     public function run()
