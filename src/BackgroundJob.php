@@ -55,7 +55,7 @@ class BackgroundJob
             'enabled'        => null,
             'haltDir'        => null,
             'debug'          => null,
-			'lock_dir'       => null,
+            'lock_dir'       => null,
         ];
 
         $this->config['output_stdout'] = $this->config['output_stdout'] === null ? $this->config['output'] : $this->config['output_stdout'];
