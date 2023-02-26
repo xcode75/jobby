@@ -179,6 +179,7 @@ EOF;
     public function getTempDir()
     {
         // @codeCoverageIgnoreStart
+        /*
         if (function_exists('sys_get_temp_dir')) {
             $tmp = sys_get_temp_dir();
         } elseif (!empty($_SERVER['TMP'])) {
@@ -189,9 +190,11 @@ EOF;
             $tmp = $_SERVER['TMPDIR'];
         } else {
             $tmp = getcwd();
-        }
+        } 
+        */
+        $tmp = realpath(dirname($_SERVER['DOCUMENT_ROOT']) . '/storage/cron');
         // @codeCoverageIgnoreEnd
-
+     
         return $tmp;
     }
 
