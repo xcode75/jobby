@@ -60,15 +60,7 @@ class Jobby
         return [
             'jobClass'       => 'Jobby\BackgroundJob',
             'recipients'     => null,
-            'mailer'         => 'sendmail',
             'maxRuntime'     => null,
-            'smtpHost'       => null,
-            'smtpPort'       => 25,
-            'smtpUsername'   => null,
-            'smtpPassword'   => null,
-            'smtpSender'     => 'jobby@' . $this->getHelper()->getHost(),
-            'smtpSenderName' => 'jobby',
-            'smtpSecurity'   => null,
             'runAs'          => null,
             'environment'    => $this->getHelper()->getApplicationEnv(),
             'runOnHost'      => $this->getHelper()->getHost(),
@@ -79,6 +71,7 @@ class Jobby
             'enabled'        => true,
             'haltDir'        => null,
             'debug'          => false,
+			'lock_dir'       => null,
         ];
     }
 

@@ -36,15 +36,7 @@ class BackgroundJob
         $this->job = $job;
         $this->config = $config + [
             'recipients'     => null,
-            'mailer'         => null,
             'maxRuntime'     => null,
-            'smtpHost'       => null,
-            'smtpPort'       => null,
-            'smtpUsername'   => null,
-            'smtpPassword'   => null,
-            'smtpSender'     => null,
-            'smtpSenderName' => null,
-            'smtpSecurity'   => null,
             'runAs'          => null,
             'environment'    => null,
             'runOnHost'      => null,
@@ -74,7 +66,6 @@ class BackgroundJob
             $this->checkMaxRuntime($lockFile);
         } catch (Exception $e) {
             $this->log('ERROR: ' . $e->getMessage(), 'stderr');
-            $this->mail($e->getMessage());
 
             return;
         }
@@ -97,7 +88,6 @@ class BackgroundJob
             $this->log('INFO: ' . $e->getMessage(), 'stderr');
         } catch (Exception $e) {
             $this->log('ERROR: ' . $e->getMessage(), 'stderr');
-            $this->mail($e->getMessage());
         }
 
         if ($lockAcquired) {
@@ -141,22 +131,6 @@ class BackgroundJob
         }
 
         throw new Exception("MaxRuntime of $maxRuntime secs exceeded! Current runtime: $runtime secs");
-    }
-
-    /**
-     * @param string $message
-     */
-    protected function mail($message)
-    {
-        if (empty($this->config['recipients'])) {
-            return;
-        }
-
-        $this->helper->sendMail(
-            $this->job,
-            $this->config,
-            $message
-        );
     }
 
     /**
