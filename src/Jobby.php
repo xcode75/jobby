@@ -71,7 +71,7 @@ class Jobby
             'enabled'        => true,
             'haltDir'        => null,
             'debug'          => false,
-			'lock_dir'       => null,
+            'lock_dir'       => null,
         ];
     }
 
